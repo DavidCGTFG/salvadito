@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
 import LoginPage from '../pages/LoginPage';
+import ProtectedRoute from './ProtectedRoute';
 import PartidaPage from '../pages/PartidaPage';
 import VictoriaPage from '../pages/VictoriaPage';
 import FracasoPage from '../pages/FracasoPage';
@@ -19,42 +20,43 @@ export const router = createBrowserRouter([
     },
     {
         path: '/main',
-        element: <MainPage />,
-    },{
+        element: <ProtectedRoute component={<MainPage />} />,
+    },
+    {
         path: '/partida',
-        element: <PartidaPage />,
+        element: <ProtectedRoute component={<PartidaPage />} />,
     },
     {
         path: '/fracaso',
-        element: <FracasoPage />,
+        element: <ProtectedRoute component={<FracasoPage />} />,
     },
     {
         path: '/victoria',
-        element: <VictoriaPage />,
+        element: <ProtectedRoute component={<VictoriaPage />} />,
     }
     ,
     {
         path: '/prePartida',
-        element: <PrePartida />,
+        element: <ProtectedRoute component={<PrePartida />} />,
     },
     {
         path: '/agresiva',
-        element: <AgresivaPage />,
+        element: <ProtectedRoute component={<AgresivaPage />} />,
     },
     {
         path: '/pasiva',
-        element: <PasivaPage />,
+        element: <ProtectedRoute component={<PasivaPage />} />,
     },
     {
         path: '/crear-partida',
-        element: <CreacionPage />,
+        element: <ProtectedRoute component={<CreacionPage />} />,
     },
     {
         path: '/crear-itinerario',
-        element: <CreacionItinerarioPage />,
+        element: <ProtectedRoute component={<CreacionItinerarioPage />} />,
     },
     {
         path: '/modificar-partida',
-        element: <ModificarPage />,
+        element: <ProtectedRoute component={<ModificarPage />} />,
     }
 ])

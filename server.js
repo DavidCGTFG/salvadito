@@ -19,9 +19,6 @@ connection.connect(function (error) {
 });
 
 
-
-
-
 const app = express();
 
 app.use(session({

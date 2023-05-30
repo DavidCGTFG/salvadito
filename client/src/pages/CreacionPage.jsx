@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { colors } from "@mui/material";
+import React, { useState } from 'react';
 import axios from 'axios';
+
 const CreacionPage = () => {
   let id_valor='';
   let  nombre='';

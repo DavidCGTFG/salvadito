@@ -6,11 +6,20 @@ import { ItinerarioContext } from "../context/ItinerarioContext";
 import axios from "axios";
 
 const MainPage = () => {
+  const { currentProfesor, setCurrentProfesor } = useContext(ItinerarioContext);
 
+  useEffect(() => {
+    setCurrentProfesor(localStorage.getItem("username_profe"));
+  }, []);
 
+  const handleLogout = async () => {
+    await axios.get("http://54.88.52.250/api/v1/login/logout");
+    localStorage.removeItem("username_profe");
+    window.location.reload();
+  };
 
   return (
-    
+    currentProfesor && (
       <div
         style={{
           height: "100vh",
@@ -39,6 +48,8 @@ const MainPage = () => {
           }}
           className="recuadro"
         >
+          <p>{currentProfesor}</p>
+          <LogoutIcon style={{ cursor: "pointer" }} onClick={handleLogout} />
         </div>
 
         <div className="recuadro">
@@ -92,7 +103,7 @@ const MainPage = () => {
         </div>
       </div>
     )
-
+  );
 };
 
 export default MainPage;

@@ -35,10 +35,11 @@ const LoginPage = () => {
       const email = values.email;
 
       const { data } = await axios.get(
-        `http://localhost:3001/api/v1/login?email=${email}&password=${password}`
+        `http://54.88.52.250/api/v1/login?email=${email}&password=${password}`
       );
 
       if (data.status === 200) {
+        console.log('pepe');
         localStorage.setItem("username_profe", data.data?.name);
         navigate("/main");
       }
@@ -54,13 +55,6 @@ const LoginPage = () => {
         justifyContent: "center",
       }}
     >
-         <Link className="links" to="/main">
-      <button className="mi-btn-start">
-            
-              Iniciar Juego
-            
-          </button>
-          </Link>
       <div style={{ marginTop: "5rem" }}>
         <img style={{ paddingLeft: "2.5rem" }} src="/oso_triste.png" alt="" />
         <Box
